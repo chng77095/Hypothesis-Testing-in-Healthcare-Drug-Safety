@@ -2,120 +2,128 @@
 
 ## Project Overview
 
-Pharmaceutical drugs play a critical role in modern healthcare, making drug safety an essential aspect of clinical research. Before a drug is approved for widespread use, it must be evaluated to determine whether it produces adverse effects that are significantly different from those observed in a placebo group.
+Pharmaceutical drugs are an essential part of modern healthcare; however, ensuring their safety is critical before approval and widespread use. This project evaluates whether a hypothetical drug developed by **GlobalXYZ** produces adverse reactions that occur at statistically significant levels compared with a placebo.
 
-In this project, a pharmaceutical company, **GlobalXYZ**, completed a randomized controlled clinical trial and shared its dataset to promote transparency and reproducibility. The analysis was conducted on behalf of a non-profit organization focused on evaluating drug safety.
+GlobalXYZ completed a randomized controlled drug trial and provided the dataset for independent analysis. The goal of this analysis is to determine whether adverse effects observed in participants are associated with the experimental drug.
 
-The original dataset, obtained from **Hbiostat** (courtesy of the Vanderbilt University Department of Biostatistics), contained demographic information, laboratory measurements, vital signs, and five adverse effects. For this project, the dataset was modified to include:
+The dataset was obtained from **Hbiostat** courtesy of the Vanderbilt University Department of Biostatistics. It contains demographic information, vital signs, laboratory measurements, and adverse effect data.
 
-| Column            | Description                                                     |
-| ----------------- | --------------------------------------------------------------- |
-| `sex`             | Gender of the participant                                       |
-| `age`             | Age of the participant                                          |
-| `week`            | Week of drug testing                                            |
-| `trx`             | Treatment group (Drug or Placebo)                               |
-| `wbc`             | White blood cell count                                          |
-| `rbc`             | Red blood cell count                                            |
-| `adverse_effects` | Whether the participant experienced at least one adverse effect |
-| `num_effects`     | Number of adverse effects experienced by the participant        |
+The modified dataset contains the following variables:
 
-The objective of this analysis was to determine whether:
-
-1. The proportion of participants experiencing adverse effects differs between the Drug and Placebo groups.
-2. The number of adverse effects is associated with treatment assignment.
-3. The Drug and Placebo groups differ in age.
+| Column | Description |
+|---|---|
+| `sex` | Gender of the individual |
+| `age` | Age of the individual |
+| `week` | Week of drug testing |
+| `trx` | Treatment group (Drug or Placebo) |
+| `wbc` | White blood cell count |
+| `rbc` | Red blood cell count |
+| `adverse_effects` | Presence of at least one adverse effect |
+| `num_effects` | Number of adverse effects experienced |
 
 ---
 
 # Analysis 1: Proportion of Adverse Effects
 
-### Statistical Test
+## Statistical Test
 
-**Two-Proportion Z-Test**
+A **two-proportion z-test** was performed to determine whether the proportion of participants experiencing at least one adverse effect differed between the **Drug** and **Placebo** groups.
 
-### Hypotheses
+## Hypotheses
 
-* **Null Hypothesis (H₀):** The proportion of participants experiencing adverse effects is the same in the Drug and Placebo groups.
-* **Alternative Hypothesis (H₁):** The proportion of participants experiencing adverse effects differs between the Drug and Placebo groups.
+- **Null Hypothesis (H₀):** The proportion of participants experiencing adverse effects is the same in the Drug and Placebo groups.
+- **Alternative Hypothesis (H₁):** The proportion of participants experiencing adverse effects differs between the Drug and Placebo groups.
 
-### Results
+## Results
 
-* **p-value:** **0.9639**
-* **Significance level (α):** 0.05
+| Test | Result |
+|---|---|
+| Statistical Test | Two-Proportion Z-Test |
+| p-value | **0.9639** |
+| Significance Level (α) | **0.05** |
 
-Since the p-value is substantially greater than 0.05, the null hypothesis cannot be rejected.
+The p-value of **0.9639** is greater than the significance level of **0.05**. Therefore, we **fail to reject the null hypothesis**.
 
-### Interpretation
+## Interpretation
 
-There is **no statistically significant difference** in the proportion of participants experiencing at least one adverse effect between the Drug and Placebo groups.
+The results indicate that there is **no statistically significant difference** in the proportion of participants experiencing adverse effects between the Drug and Placebo groups.
 
-From a drug safety perspective, these findings suggest that the experimental drug does **not** increase the likelihood of adverse effects compared with the placebo. Based on this analysis, the drug appears to have a safety profile comparable to that of the placebo with respect to the occurrence of adverse effects.
+From a drug safety perspective, the experimental drug does **not appear to increase the likelihood of adverse effects** compared with the placebo. The observed differences between groups are likely due to random variation rather than the effect of the treatment.
 
 ---
 
 # Analysis 2: Number of Adverse Effects
 
-### Statistical Test
+## Statistical Test
 
-**Chi-Square Test of Independence**
+A **chi-square test of independence** was conducted to determine whether the number of adverse effects experienced by participants was associated with their assigned treatment group.
 
-### Hypotheses
+## Hypotheses
 
-* **Null Hypothesis (H₀):** The number of adverse effects experienced is independent of the treatment group.
-* **Alternative Hypothesis (H₁):** The number of adverse effects experienced is associated with the treatment group.
+- **Null Hypothesis (H₀):** The number of adverse effects experienced is independent of treatment group.
+- **Alternative Hypothesis (H₁):** The number of adverse effects experienced is associated with treatment group.
 
-### Results
+## Results
 
-* **p-value:** **0.6150**
-* **Significance level (α):** 0.05
+| Test | Result |
+|---|---|
+| Statistical Test | Chi-Square Test of Independence |
+| p-value | **0.6150** |
+| Significance Level (α) | **0.05** |
 
-Because the p-value exceeds 0.05, the null hypothesis cannot be rejected.
+The p-value of **0.6150** is greater than **0.05**, meaning we **fail to reject the null hypothesis**.
 
-### Interpretation
+## Interpretation
 
-There is **no statistically significant association** between treatment assignment and the number of adverse effects experienced by participants.
+The analysis found **no statistically significant association** between treatment assignment and the number of adverse effects experienced by participants.
 
-Participants who received the experimental drug did not experience a significantly different number of adverse effects than those who received the placebo.
+Participants receiving the experimental drug did not experience a significantly different number of adverse effects compared with participants receiving the placebo.
 
-From a drug safety perspective, these findings indicate that the experimental treatment does not increase the overall burden of adverse effects. Any observed differences are consistent with random variation within the study sample.
+These findings suggest that the experimental drug does not increase the overall number of adverse reactions observed in the study population.
 
 ---
 
 # Analysis 3: Age Differences Between Treatment Groups
 
-### Statistical Test
+## Statistical Test
 
-**Mann–Whitney U Test**
+A **Mann–Whitney U test** was performed to determine whether participant ages differed significantly between the Drug and Placebo groups.
 
-### Hypotheses
+The Mann–Whitney U test was selected because it is a non-parametric test that does not require the assumption of normally distributed data.
 
-* **Null Hypothesis (H₀):** The age distributions of participants are the same in the Drug and Placebo groups.
-* **Alternative Hypothesis (H₁):** The age distributions differ between the Drug and Placebo groups.
+## Hypotheses
 
-### Results
+- **Null Hypothesis (H₀):** The age distributions of participants are the same between the Drug and Placebo groups.
+- **Alternative Hypothesis (H₁):** The age distributions differ between the Drug and Placebo groups.
 
-* **p-value:** **0.2570**
-* **Significance level (α):** 0.05
+## Results
 
-Since the p-value is greater than 0.05, the null hypothesis cannot be rejected.
+| Test | Result |
+|---|---|
+| Statistical Test | Mann–Whitney U Test |
+| p-value | **0.2570** |
+| Significance Level (α) | **0.05** |
 
-### Interpretation
+The p-value of **0.2570** is greater than **0.05**, so we **fail to reject the null hypothesis**.
 
-There is **no statistically significant difference** in the age distributions of participants assigned to the Drug and Placebo groups.
+## Interpretation
 
-The similarity in age between treatment groups suggests that the randomization process successfully produced comparable groups, reducing the likelihood that age influenced the study's safety outcomes.
+The results indicate that there is **no statistically significant difference** in the age distributions of participants between the Drug and Placebo groups.
+
+This suggests that randomization successfully created comparable treatment groups. Since age is similar between groups, it is unlikely to act as a confounding variable when evaluating the safety outcomes of the drug.
 
 ---
 
 # Overall Conclusion
 
-Three hypothesis tests were conducted to evaluate the safety profile of the experimental drug.
+The goal of this analysis was to determine whether the experimental drug produced significantly different adverse effects compared with a placebo.
 
-| Research Question                                           | Statistical Test                | p-value    | Conclusion                 |
-| ----------------------------------------------------------- | ------------------------------- | ---------- | -------------------------- |
-| Do the proportions of adverse effects differ?               | Two-Proportion Z-Test           | **0.9639** | No significant difference  |
-| Is the number of adverse effects associated with treatment? | Chi-Square Test of Independence | **0.6150** | No significant association |
-| Do the Drug and Placebo groups differ in age?               | Mann–Whitney U Test             | **0.2570** | No significant difference  |
+| Research Question | Statistical Test | p-value | Conclusion |
+|---|---|---|---|
+| Does the proportion of adverse effects differ? | Two-Proportion Z-Test | **0.9639** | No significant difference |
+| Is the number of adverse effects associated with treatment? | Chi-Square Test | **0.6150** | No significant association |
+| Are participant ages different between groups? | Mann–Whitney U Test | **0.2570** | No significant difference |
 
-Overall, the analyses indicate that the experimental drug has a safety profile comparable to that of the placebo. There is no statistical evidence that the drug increases either the likelihood of experiencing adverse effects or the number of adverse effects experienced. Additionally, the treatment groups were well balanced with respect to participant age, supporting the validity of the clinical trial comparisons.
+Overall, the hypothesis tests provide **no statistical evidence that the experimental drug increases adverse effects compared with the placebo**. Additionally, the treatment groups were comparable in age, supporting the validity of the randomized controlled trial.
 
+Based on these findings, the experimental drug demonstrates a safety profile similar to the placebo with respect to the adverse effects analyzed.
