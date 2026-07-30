@@ -1,0 +1,59 @@
+### Hypothesis Testing in Healthcare Drug Safety
+
+Pharmaceutical drugs have become an essential part of our health. They need to be safe with little or no adverse effects. This project's tasks is to create reports on drugs to determine if the adverse reactions of a hypothetical drug are significant.
+
+A pharmaceutical company GlobalXYZ has just completed a randomized controlled drug trial. To promote transparency and reproducibility of the drug's outcome, they (GlobalXYZ) have presented the dataset to your organization, a non-profit that focuses primarily on drug safety. The dataset provided contained five adverse effects, demographic data, vital signs, etc. Your organization is primarily interested in the drug's adverse reactions. It wants to know if the adverse reactions, if any, are of significant proportions. It has asked you to explore and answer some questions from the data.
+
+The dataset drug_safety.csv was obtained from Hbiostat courtesy of the Vanderbilt University Department of Biostatistics. It contained five adverse effects: headache, abdominal pain, dyspepsia, upper respiratory infection, chronic obstructive airway disease (COAD), demographic data, vital signs, lab measures, etc. The ratio of drug observations to placebo observations is 2 to 1.
+
+For this project, the dataset has been modified to reflect the presence and absence of adverse effects adverse_effects and the number of adverse effects in a single individual num_effects.
+
+
+
+
+### Analysis of the Proportion of Adverse Effects
+
+A two-proportion z-test was conducted to determine whether the proportion of participants experiencing at least one adverse effect differed between the Drug and Placebo groups.
+
+The hypotheses for the test were:
+
+* **Null hypothesis (H₀):** The proportion of participants experiencing adverse effects is the same in the Drug and Placebo groups.
+* **Alternative hypothesis (H₁):** The proportion of participants experiencing adverse effects differs between the Drug and Placebo groups.
+
+The test resulted in a **p-value of 0.9639**. Using a significance level of **α = 0.05**, the p-value is much greater than the threshold for statistical significance. Therefore, the null hypothesis cannot be rejected.
+
+
+From a drug safety perspective, this result suggests that the experimental drug does not increase the likelihood of adverse effects compared with the placebo in the study population. Based on this analysis, the drug appears to have a safety profile similar to that of the placebo with respect to the occurrence of adverse effects.
+
+
+### Analysis of the Number of Adverse Effects
+
+A chi-square test of independence was performed to determine whether the number of adverse effects experienced by participants was associated with their treatment group (Drug or Placebo).
+
+The hypotheses for the test were:
+
+Null hypothesis (H₀): The number of adverse effects experienced is independent of the treatment group.
+Alternative hypothesis (H₁): The number of adverse effects experienced is associated with the treatment group.
+
+The chi-square test produced a p-value of 0.6150. Using a significance level of α = 0.05, the p-value is greater than the threshold for statistical significance. Therefore, the null hypothesis cannot be rejected.
+
+This result indicates that there is no statistically significant association between treatment assignment and the number of adverse effects experienced by participants. In other words, participants who received the experimental drug did not experience a significantly different number of adverse effects compared with those who received the placebo.
+
+From a drug safety perspective, these findings suggest that the experimental treatment does not appear to increase the overall burden of adverse effects relative to the placebo. The observed differences in the number of adverse effects are consistent with what would be expected due to random variation within the study sample.
+
+
+### Analysis of Age Differences Between the Drug and Placebo Groups
+
+A Mann–Whitney U test was conducted to determine whether there was a significant difference in the age distributions of participants assigned to the Drug and Placebo groups. The Mann–Whitney U test was selected because it is a non-parametric alternative to the independent samples t-test and does not require the assumption of normally distributed data.
+
+The hypotheses for the test were:
+
+Null hypothesis (H₀): The age distributions of participants are the same in the Drug and Placebo groups.
+Alternative hypothesis (H₁): The age distributions of participants differ between the Drug and Placebo groups.
+
+The test produced a p-value of 0.2570. Using a significance level of α = 0.05, the p-value is greater than the threshold for statistical significance. Therefore, the null hypothesis cannot be rejected.
+
+This result indicates that there is no statistically significant difference in the ages of participants between the Drug and Placebo groups. The similarity in age distributions suggests that the randomization process successfully created comparable treatment groups with respect to this important demographic characteristic.
+
+From the perspective of the clinical trial, this finding supports the validity of subsequent comparisons between the Drug and Placebo groups, as age is unlikely to act as a confounding factor when evaluating the safety outcomes of the experimental drug.
+
